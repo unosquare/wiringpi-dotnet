@@ -1,0 +1,40 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "src/**/*.cs" ],
+          "exclude": [ "**/bin/**", "**/obj/**" ]
+        }
+      ],
+      "dest": "obj/api"
+    }
+  ],
+  "build": {
+    "template": [
+      "best-practices/templates/default"
+    ],
+    "content": [
+      {
+        "files": [ "**/*.yml" ],
+        "cwd": "obj/api",
+        "dest": "api"
+      },
+      {
+        "files": [ "*.md", "toc.yml" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "best-practices/resources/**", "Support/pigpio-dotnet-256.png"]
+      }
+    ],
+    "globalMetadata": {
+      "_appTitle": "Unosquare Raspbery Pi - WiringPi for .net",
+      "_enableSearch": true,
+      "_docLogo":  "Support/pigpio-dotnet-256.png",
+      "_appLogoPath": "best-practices/resources/images/logo.png"
+    },
+    "dest": "_site"
+  }
+}
