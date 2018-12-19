@@ -17,6 +17,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.WiringPi", "src\U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.WiringPi.Workbench", "src\Unosquare.WiringPi.Workbench\Unosquare.WiringPi.Workbench.csproj", "{6426213F-AE64-41B3-8657-1A1CE589BEF6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Folder", "Solutions Folder", "{E4498B64-E76A-45FC-9BC2-E7FC44802C94}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		docfx.json = docfx.json
+		README.md = README.md
+		StyleCop.Analyzers.ruleset = StyleCop.Analyzers.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

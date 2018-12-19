@@ -11,7 +11,7 @@
     public class SystemInfo : ISystemInfo
     {
         private static readonly object _lock = new object();
-        private static bool _revGetted = false;
+        private static bool _revGetted;
         private static BoardRevision _boardRevision = BoardRevision.Rev2;
 
         /// <inheritdoc />
