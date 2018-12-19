@@ -1,0 +1,46 @@
+version: '1.0.{build}'
+image: Visual Studio 2017
+configuration:
+- Release
+platform: Any CPU
+notifications:
+- provider: Slack
+  auth_token:
+    secure: Q+xg4/yU5OR9BVF14cw4yZ+3qlhMeYDsAhUQyOIszmF1mHvq44tIvQpWByBJCd/cgUIZk3SwBpk4hh1MrkQIk6rnaOZ2LNBTev4zrq36oXk=
+  channel: '#builds'
+environment:
+  # Don't report back to the mothership
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  op_build_user: "Geo Perez"
+  op_build_user_email: "geovanni.perez@gmail.com"
+  access_token:
+       secure: HzWdswNyfQbQ0vLk9IQyO+Ei9mxoPYp9rvv6HPhtC9J/Fm7EHRzyV953pbPRXI9I
+before_build:
+- nuget restore
+- ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            git checkout $env:APPVEYOR_REPO_BRANCH -q
+            cinst docfx -y
+        }
+        
+after_build:
+- ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            git config --global credential.helper store
+            Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+            git config --global core.autocrlf false 
+            git config --global user.email $env:op_build_user_email
+            git config --global user.name $env:op_build_user
+            git clone https://github.com/unosquare/pigpio-dotnet.git -b gh-pages origin_site -q
+            git clone -b documentation https://github.com/unosquare/best-practices.git -q
+            docfx docfx.json --logLevel Error
+            Copy-Item origin_site/.git _site -recurse
+            CD _site
+            Copy-Item README.html index.html -force
+            git add -A 2>&1
+            git commit -m "Documentation update" -q
+            git push origin gh-pages -q
+            CD ..
+        }
