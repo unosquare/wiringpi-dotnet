@@ -10,7 +10,7 @@
     /// <seealso cref="ISystemInfo" />
     public class SystemInfo : ISystemInfo
     {
-        private static readonly object _lock = new object();
+        private static readonly object Lock = new object();
         private static bool _revGetted;
         private static BoardRevision _boardRevision = BoardRevision.Rev2;
 
@@ -33,7 +33,7 @@
         {
             if (!_revGetted)
             {
-                lock (_lock)
+                lock (Lock)
                 {
                     if (!_revGetted)
                     {

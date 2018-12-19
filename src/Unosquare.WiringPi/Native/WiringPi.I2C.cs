@@ -4,8 +4,6 @@
 
     public partial class WiringPi
     {
-        #region WiringPi - I2C Library Calls
-
         /// <summary>
         /// Simple device read. Some devices present data when you read them without having to do any register transactions.
         /// </summary>
@@ -62,7 +60,7 @@
         public static extern int WiringPiI2CWriteReg16(int fd, int reg, int data);
 
         /// <summary>
-        /// This initialises the I2C system with your given device identifier.
+        /// This initializes the I2C system with your given device identifier.
         /// The ID is the I2C number of the device and you can use the i2cdetect program to find this out. wiringPiI2CSetup()
         /// will work out which revision Raspberry Pi you have and open the appropriate device in /dev.
         /// The return value is the standard Linux filehandle, or -1 if any error – in which case, you can consult errno as usual.
@@ -72,8 +70,5 @@
         /// <returns>The result.</returns>
         [DllImport(WiringPiLibrary, EntryPoint = "wiringPiI2CSetup", SetLastError = true)]
         public static extern int WiringPiI2CSetup(int devId);
-
-        #endregion
-
     }
 }

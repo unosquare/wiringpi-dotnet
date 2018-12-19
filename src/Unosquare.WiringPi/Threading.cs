@@ -6,6 +6,10 @@
     using RaspberryIO.Abstractions.Native;
     using Swan;
 
+    /// <summary>
+    /// Use this class to access threading methods using interop.
+    /// </summary>
+    /// <seealso cref="Unosquare.RaspberryIO.Abstractions.IThreading" />
     public class Threading : IThreading
     {
         /// <summary>

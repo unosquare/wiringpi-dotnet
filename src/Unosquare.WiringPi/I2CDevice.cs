@@ -24,26 +24,13 @@
             FileDescriptor = fileDescriptor;
         }
 
-        /// <summary>
-        /// Gets the device identifier.
-        /// </summary>
-        /// <value>
-        /// The device identifier.
-        /// </value>
+        /// <inheritdoc />
         public int DeviceId { get; }
 
-        /// <summary>
-        /// Gets the standard POSIX file descriptor.
-        /// </summary>
-        /// <value>
-        /// The file descriptor.
-        /// </value>
+        /// <inheritdoc />
         public int FileDescriptor { get; }
 
-        /// <summary>
-        /// Reads a byte from the specified file descriptor.
-        /// </summary>
-        /// <returns>The byte from device.</returns>
+        /// <inheritdoc />
         public byte Read()
         {
             lock (_syncLock)
@@ -58,7 +45,7 @@
         /// Reads a byte from the specified file descriptor.
         /// </summary>
         /// <returns>The byte from device.</returns>
-        public Task<byte> ReadAsync() => Task.Run(() => Read());
+        public Task<byte> ReadAsync() => Task.Run(Read);
 
         /// <summary>
         /// Reads a buffer of the specified length, one byte at a time.
@@ -129,10 +116,7 @@
         /// </summary>
         /// <param name="data">The data.</param>
         /// <returns>The awaitable task.</returns>
-        public Task WriteAsync(byte[] data)
-        {
-            return Task.Run(() => { Write(data); });
-        }
+        public Task WriteAsync(byte[] data) => Task.Run(() => { Write(data); });
 
         /// <summary>
         /// These write an 8 or 16-bit data value into the device register indicated.

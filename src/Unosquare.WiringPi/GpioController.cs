@@ -32,10 +32,13 @@
         /// </summary>
         static GpioController()
         {
-            var wiringPiEdgeDetection = new Dictionary<EdgeDetection, int>();
-            wiringPiEdgeDetection.Add(EdgeDetection.FallingEdge, 21);
-            wiringPiEdgeDetection.Add(EdgeDetection.RisingEdge, 1);
-            wiringPiEdgeDetection.Add(EdgeDetection.FallingAndRisingEdge, 3);
+            var wiringPiEdgeDetection = new Dictionary<EdgeDetection, int>
+            {
+                {EdgeDetection.FallingEdge, 21},
+                {EdgeDetection.RisingEdge, 1},
+                {EdgeDetection.FallingAndRisingEdge, 3},
+            };
+
             WiringPiEdgeDetectionMapping = new ReadOnlyDictionary<EdgeDetection, int>(wiringPiEdgeDetection);
         }
 
@@ -464,7 +467,7 @@
         /// </summary>
         /// <returns>A byte from the GPIO.</returns>
         public Task<byte> ReadByteAsync() =>
-            Task.Run(() => ReadByte());
+            Task.Run(ReadByte);
 
         #endregion
 

@@ -4,8 +4,6 @@
 
     public partial class WiringPi
     {
-        #region WiringPi - Serial Port
-
         /// <summary>
         /// This opens and initialises the serial device and sets the baud rate. It sets the port into “raw” mode (character at a time and no translations),
         /// and sets the read timeout to 10 seconds. The return value is the file descriptor or -1 for any error, in which case errno will be set as appropriate.
@@ -67,7 +65,5 @@
         /// <param name="fd">The fd.</param>
         [DllImport(WiringPiLibrary, EntryPoint = "serialFlush", SetLastError = true)]
         public static extern void SerialFlush(int fd);
-
-        #endregion
     }
 }
