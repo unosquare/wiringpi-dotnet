@@ -610,16 +610,10 @@
 
         /// <inheritdoc />
         /// <exception cref="ArgumentNullException">callback.</exception>
-        /// <exception cref="InvalidOperationException">
-        /// An interrupt callback was already registered or GPIO operating mode is not valid..
-        /// </exception>
         public void RegisterInterruptCallback(EdgeDetection edgeDetection, Action callback)
         {
             if (callback == null)
-                throw new ArgumentNullException($"{nameof(callback)} cannot be null");
-
-            if (InterruptCallback != null)
-                throw new InvalidOperationException("An interrupt callback was already registered.");
+                throw new ArgumentNullException(nameof(callback));
 
             if (PinMode != GpioPinDriveMode.Input)
             {
