@@ -29,6 +29,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Unosquare.Raspberry.Abstractions" Version="0.1.0" />
+    <PackageReference Include="Unosquare.Raspberry.Abstractions" Version="0.2.0" />
   </ItemGroup>
 </Project>

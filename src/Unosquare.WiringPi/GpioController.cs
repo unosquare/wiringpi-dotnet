@@ -547,7 +547,7 @@
                 if (IsInitialized)
                     throw new InvalidOperationException($"Cannot call {nameof(Initialize)} more than once.");
 
-                Environment.SetEnvironmentVariable(WiringPiCodesEnvironmentVariable, "1"); //TODO: EnvironmentVariableTarget.Process);
+                Environment.SetEnvironmentVariable(WiringPiCodesEnvironmentVariable, "1");
                 int setupResult;
 
                 switch (mode)
