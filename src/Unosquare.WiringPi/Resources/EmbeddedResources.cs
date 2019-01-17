@@ -38,8 +38,6 @@
 
             foreach (var resourceName in ResourceNames)
             {
-                Console.WriteLine(resourceName);
-
                 var filename = resourceName.Substring($"{typeof(EmbeddedResources).Namespace}.".Length);
                 var targetPath = Path.Combine(basePath, filename);
                 if (File.Exists(targetPath)) return;
