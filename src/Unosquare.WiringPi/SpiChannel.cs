@@ -1,12 +1,12 @@
-﻿namespace Unosquare.WiringPI
+﻿namespace Unosquare.WiringPi
 {
     using Native;
     using RaspberryIO.Abstractions;
+    using RaspberryIO.Abstractions.Native;
     using Swan;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Unosquare.RaspberryIO.Abstractions.Native;
 
     /// <summary>
     /// Provides access to using the SPI buses on the GPIO.

@@ -1,11 +1,11 @@
-﻿namespace Unosquare.WiringPI
+﻿namespace Unosquare.WiringPi
 {
     using Native;
     using RaspberryIO.Abstractions;
     using System;
 
     /// <summary>
-    /// Represents the WiringPI system info.
+    /// Represents the WiringPi system info.
     /// </summary>
     /// <seealso cref="ISystemInfo" />
     public class SystemInfo : ISystemInfo

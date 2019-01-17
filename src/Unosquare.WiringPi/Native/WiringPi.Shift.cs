@@ -1,4 +1,4 @@
-﻿namespace Unosquare.WiringPI.Native
+﻿namespace Unosquare.WiringPi.Native
 {
     using System.Runtime.InteropServices;
 

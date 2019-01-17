@@ -1,10 +1,10 @@
-﻿namespace Unosquare.WiringPI
+﻿namespace Unosquare.WiringPi
 {
-    using System;
-    using System.Threading.Tasks;
     using Native;
     using RaspberryIO.Abstractions;
-    using Unosquare.RaspberryIO.Abstractions.Native;
+    using RaspberryIO.Abstractions.Native;
+    using System;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Represents a device on the I2C Bus.

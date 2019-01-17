@@ -1,4 +1,4 @@
-﻿namespace Unosquare.WiringPI
+﻿namespace Unosquare.WiringPi
 {
     using RaspberryIO.Abstractions;
 

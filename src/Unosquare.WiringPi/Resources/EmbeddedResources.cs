@@ -1,10 +1,10 @@
-﻿namespace Unosquare.WiringPI.Resources
+﻿namespace Unosquare.WiringPi.Resources
 {
     using System;
     using System.Collections.ObjectModel;
     using System.IO;
     using Swan;
-    using Unosquare.RaspberryIO.Abstractions.Native;
+    using RaspberryIO.Abstractions.Native;
 
     /// <summary>
     /// Provides access to embedded assembly files.
@@ -38,12 +38,14 @@
 
             foreach (var resourceName in ResourceNames)
             {
+                Console.WriteLine(resourceName);
+
                 var filename = resourceName.Substring($"{typeof(EmbeddedResources).Namespace}.".Length);
                 var targetPath = Path.Combine(basePath, filename);
                 if (File.Exists(targetPath)) return;
 
                 using (var stream = typeof(EmbeddedResources).Assembly()
-                    .GetManifestResourceStream($"{typeof(EmbeddedResources).Namespace}.{filename}"))
+                    .GetManifestResourceStream(resourceName))
                 {
                     using (var outputStream = File.OpenWrite(targetPath))
                     {

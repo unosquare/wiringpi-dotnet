@@ -1,4 +1,4 @@
-﻿namespace Unosquare.WiringPI
+﻿namespace Unosquare.WiringPi
 {
     using RaspberryIO.Abstractions;
     using System;
@@ -9,13 +9,13 @@
 
         internal static readonly Lazy<GpioPin> Pin00 = new Lazy<GpioPin>(() => new GpioPin(BcmPin.Gpio00)
         {
-            Capabilities = PinCapability.I2CSDA,
+            Capabilities = PinCapability.GP | PinCapability.I2CSDA,
             Name = $"BCM 0 {(SystemInfo.GetBoardRevision() == BoardRevision.Rev1 ? "(SDA)" : "(ID_SD)")}",
         });
 
         internal static readonly Lazy<GpioPin> Pin01 = new Lazy<GpioPin>(() => new GpioPin(BcmPin.Gpio01)
         {
-            Capabilities = PinCapability.I2CSCL,
+            Capabilities = PinCapability.GP | PinCapability.I2CSCL,
             Name = $"BCM 1  {(SystemInfo.GetBoardRevision() == BoardRevision.Rev1 ? "(SCL)" : "(ID_SC)")}",
         });
 
