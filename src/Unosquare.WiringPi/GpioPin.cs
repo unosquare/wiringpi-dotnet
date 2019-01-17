@@ -116,10 +116,10 @@
                 lock (_syncLock)
                 {
                     var mode = value;
-                    if ((mode == GpioPinDriveMode.GpioClock && HasCapability(PinCapability.GPCLK)) ||
-                        (mode == GpioPinDriveMode.PwmOutput && HasCapability(PinCapability.PWM)) ||
-                        (mode == GpioPinDriveMode.Input && HasCapability(PinCapability.GP)) ||
-                        (mode == GpioPinDriveMode.Output && HasCapability(PinCapability.GP)))
+                    if ((mode == GpioPinDriveMode.GpioClock && !HasCapability(PinCapability.GPCLK)) ||
+                        (mode == GpioPinDriveMode.PwmOutput && !HasCapability(PinCapability.PWM)) ||
+                        (mode == GpioPinDriveMode.Input && !HasCapability(PinCapability.GP)) ||
+                        (mode == GpioPinDriveMode.Output && !HasCapability(PinCapability.GP)))
                     {
                         throw new NotSupportedException(
                             $"Pin {BcmPinNumber} '{Name}' does not support mode '{mode}'. Pin capabilities are limited to: {Capabilities}");
@@ -401,7 +401,7 @@
         {
             lock (_syncLock)
             {
-                if (HasCapability(PinCapability.GP))
+                if (!HasCapability(PinCapability.GP))
                     throw new NotSupportedException($"Pin {BcmPinNumber} does not support software PWM");
 
                 if (IsInSoftPwmMode)
