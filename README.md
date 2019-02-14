@@ -81,3 +81,13 @@ public static void TestLedBlinking()
     }
 }
 ```
+
+## Related Projects and Nugets
+| Name | Author | Description |
+| ---- | ------ | ----------- |
+| [RaspberryIO](https://github.com/unosquare/raspberryio) | [Unosquare](https://github.com/unosquare) | The Raspberry Pi's IO Functionality in an easy-to-use API for .NET (Mono/.NET Core). |
+| [PiGpio.net](https://github.com/unosquare/pigpio-dotnet) | [Unosquare](https://github.com/unosquare) | Provides complete managed access to the popular pigpio C library |
+| [Raspberry Abstractions](https://www.nuget.org/packages/Unosquare.Raspberry.Abstractions) | [Unosquare](https://www.nuget.org/profiles/Unosquare) | Allows you to implement your own provider for RaspberryIO. |
+| [Raspberry# IO](https://github.com/raspberry-sharp/raspberry-sharp-io) | [raspberry-sharp](https://github.com/raspberry-sharp) | Raspberry# IO is a .NET/Mono IO Library for Raspberry Pi. This project is an initiative of the [Raspberry#](http://www.raspberry-sharp.org/) Community. |
+| [WiringPi.Net](https://github.com/danriches/WiringPi.Net) | [Daniel Riches](https://github.com/danriches) | A simple C# wrapper for Gordon's WiringPi library. |
+| [PiSharp](https://github.com/andycb/PiSharp) |[Andy Bradford](https://github.com/andycb) | Pi# is a library to expose the GPIO functionality of the Raspberry Pi computer to the C# and Visual Basic.Net languages |
