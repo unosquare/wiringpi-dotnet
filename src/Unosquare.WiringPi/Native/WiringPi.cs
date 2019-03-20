@@ -265,24 +265,7 @@
         /// <param name="freq">The freq.</param>
         [DllImport(WiringPiLibrary, EntryPoint = "gpioClockSet", SetLastError = true)]
         public static extern void GpioClockSet(int pin, int freq);
-
-        /// <summary>
-        /// Note: Jan 2013: The waitForInterrupt() function is deprecated – you should use the newer and easier to use wiringPiISR() function below.
-        /// When called, it will wait for an interrupt event to happen on that pin and your program will be stalled. The timeOut parameter is given in milliseconds,
-        /// or can be -1 which means to wait forever.
-        /// The return value is -1 if an error occurred (and errno will be set appropriately), 0 if it timed out, or 1 on a successful interrupt event.
-        /// Before you call waitForInterrupt, you must first initialise the GPIO pin and at present the only way to do this is to use the gpio program, either
-        /// in a script, or using the system() call from inside your program.
-        /// e.g. We want to wait for a falling-edge interrupt on GPIO pin 0, so to setup the hardware, we need to run: gpio edge 0 falling
-        /// before running the program.
-        /// </summary>
-        /// <param name="pin">The pin.</param>
-        /// <param name="timeout">The timeout.</param>
-        /// <returns>The result code.</returns>
-        [Obsolete]
-        [DllImport(WiringPiLibrary, EntryPoint = "waitForInterrupt", SetLastError = true)]
-        public static extern int WaitForInterrupt(int pin, int timeout);
-
+        
         /// <summary>
         /// This function registers a function to received interrupts on the specified pin.
         /// The edgeType parameter is either INT_EDGE_FALLING, INT_EDGE_RISING, INT_EDGE_BOTH or INT_EDGE_SETUP.

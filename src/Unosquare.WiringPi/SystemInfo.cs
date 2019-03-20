@@ -31,17 +31,12 @@
 
         internal static BoardRevision GetBoardRevision()
         {
-            if (!_revGetted)
+            lock (Lock)
             {
-                lock (Lock)
-                {
-                    if (!_revGetted)
-                    {
-                        var val = WiringPi.PiBoardRev();
-                        _boardRevision = val == 1 ? BoardRevision.Rev1 : BoardRevision.Rev2;
-                        _revGetted = true;
-                    }
-                }
+                if (_revGetted) return _boardRevision;
+                var val = WiringPi.PiBoardRev();
+                _boardRevision = val == 1 ? BoardRevision.Rev1 : BoardRevision.Rev2;
+                _revGetted = true;
             }
 
             return _boardRevision;
