@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Unosquare.WiringPi\Unosquare.WiringPi.csproj" />
+  </ItemGroup>
+
 </Project>
