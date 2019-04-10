@@ -2,10 +2,11 @@
 
 namespace Unosquare.WiringPi.Workbench
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            // TODO: Complete!
             Console.WriteLine("Hello World!");
         }
     }

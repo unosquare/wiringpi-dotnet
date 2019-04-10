@@ -17,7 +17,14 @@
         private readonly Dictionary<int, II2CDevice> _devices = new Dictionary<int, II2CDevice>();
 
         /// <inheritdoc />
-        public ReadOnlyCollection<II2CDevice> Devices => new ReadOnlyCollection<II2CDevice>(_devices.Values.ToArray());
+        public ReadOnlyCollection<II2CDevice> Devices
+        {
+            get
+            {
+                lock (SyncRoot)
+                    return new ReadOnlyCollection<II2CDevice>(_devices.Values.ToArray());
+            }
+        }
 
         /// <inheritdoc />
         public II2CDevice this[int deviceId] => GetDeviceById(deviceId);
@@ -26,9 +33,7 @@
         public II2CDevice GetDeviceById(int deviceId)
         {
             lock (SyncRoot)
-            {
                 return _devices[deviceId];
-            }
         }
 
         /// <inheritdoc />
@@ -61,9 +66,7 @@
         private static int SetupFileDescriptor(int deviceId)
         {
             lock (SyncRoot)
-            {
                 return WiringPi.WiringPiI2CSetup(deviceId);
-            }
         }
     }
 }

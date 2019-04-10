@@ -5,8 +5,6 @@
 
     public partial class GpioPin
     {
-        #region Static Pin Definitions
-
         internal static readonly Lazy<GpioPin> Pin00 = new Lazy<GpioPin>(() => new GpioPin(BcmPin.Gpio00)
         {
             Capabilities = PinCapability.GP | PinCapability.I2CSDA,
@@ -198,7 +196,5 @@
             Capabilities = PinCapability.GP,
             Name = "BCM 31",
         });
-
-        #endregion
     }
 }

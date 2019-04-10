@@ -9,7 +9,7 @@
     /// <summary>
     /// Use this class to access threading methods using interop.
     /// </summary>
-    /// <seealso cref="Unosquare.RaspberryIO.Abstractions.IThreading" />
+    /// <seealso cref="IThreading" />
     public class Threading : IThreading
     {
         /// <summary>

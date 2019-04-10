@@ -90,7 +90,7 @@
         {
             lock (_syncLock)
             {
-                var result = Standard.Write(FileDescriptor, buffer, buffer.Length);
+                var result = SysCall.Write(FileDescriptor, buffer, buffer.Length);
 
                 if (result < 0)
                     HardwareException.Throw(nameof(SpiChannel), nameof(Write));

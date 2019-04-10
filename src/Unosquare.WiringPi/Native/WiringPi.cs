@@ -1,6 +1,5 @@
 ﻿namespace Unosquare.WiringPi.Native
 {
-    using System;
     using System.Runtime.InteropServices;
 
     /// <summary>
