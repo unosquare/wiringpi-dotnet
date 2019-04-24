@@ -2,6 +2,8 @@
 
 # <img src="https://raw.githubusercontent.com/unosquare/wiringpi-dotnet/master/logos/raspberryio-logo-32.png" alt="wiringpi-dotnet" style="width:16px; height:16px" /> wiringpi-dotnet
 
+*:star: Please star this project if you find it useful!*
+
 Provides complete managed access to the popular wiringpi C library
 
 The default low-level provider is the wonderful ```WiringPi``` library available [here](http://wiringpi.com/). You do not need to install this library yourself. The ```Unosquare.WiringPi``` assembly will automatically extract the compiled binary of the library in the same path as the entry assembly.
