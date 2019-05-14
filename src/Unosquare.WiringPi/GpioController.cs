@@ -21,7 +21,7 @@
 
         private const string WiringPiCodesEnvironmentVariable = "WIRINGPI_CODES";
         private static readonly object SyncRoot = new object();
-        private readonly ReadOnlyCollection<GpioPin> _pins;
+        private readonly List<GpioPin> _pins;
 
         #endregion
 
@@ -58,8 +58,7 @@
                     throw new Exception("Unable to initialize the GPIO controller.");
             }
 
-            _pins = new ReadOnlyCollection<GpioPin>(
-                    new List<GpioPin>()
+            _pins = new List<GpioPin>
                     {
                         GpioPin.Pin00.Value,
                         GpioPin.Pin01.Value,
@@ -93,7 +92,7 @@
                         GpioPin.Pin29.Value,
                         GpioPin.Pin30.Value,
                         GpioPin.Pin31.Value,
-                    });
+                    };
 
             var headerP1 = new Dictionary<int, GpioPin>(_pins.Count);
             var headerP5 = new Dictionary<int, GpioPin>(_pins.Count);
@@ -155,7 +154,7 @@
         /// <summary>
         /// Gets a red-only collection of all pins.
         /// </summary>
-        public ReadOnlyCollection<GpioPin> Pins => _pins;
+        public ReadOnlyCollection<GpioPin> Pins => new ReadOnlyCollection<GpioPin>(_pins);
 
         /// <summary>
         /// Provides all the pins on Header P1 of the Pi as a lookup by physical header pin number.
@@ -481,20 +480,10 @@
         /// </returns>
         public IEnumerator<GpioPin> GetEnumerator() => Pins.GetEnumerator();
 
-        /// <summary>
-        /// Returns an enumerator that iterates through the collection.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-        /// </returns>
+        /// <inheritdoc />
         IEnumerator<IGpioPin> IEnumerable<IGpioPin>.GetEnumerator() => Pins.GetEnumerator();
 
-        /// <summary>
-        /// Returns an enumerator that iterates through the collection.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-        /// </returns>
+        /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator() => Pins.GetEnumerator();
 
         #endregion
