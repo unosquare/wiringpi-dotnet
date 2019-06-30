@@ -79,7 +79,7 @@
 
         /// <summary>
         /// This sets the pull-up or pull-down resistor mode on the given pin, which should be set as an input.
-        /// Unlike the Arduino, the BCM2835 has both pull-up an down internal resistors. The parameter pud should be; PUD_OFF,
+        /// Unlike the Arduino, the BCM2835 has both pull-up and down internal resistors. The parameter pud should be; PUD_OFF,
         /// (no pull up/down), PUD_DOWN (pull to ground) or PUD_UP (pull to 3.3v) The internal pull up/down resistors
         /// have a value of approximately 50KΩ on the Raspberry Pi.
         ///

@@ -16,12 +16,12 @@
     public sealed class SpiChannel : ISpiChannel
     {
         /// <summary>
-        /// The minimum frequency of an SPI Channel.
+        /// The minimum frequency of a SPI Channel.
         /// </summary>
         public const int MinFrequency = 500000;
 
         /// <summary>
-        /// The maximum frequency of an SPI channel.
+        /// The maximum frequency of a SPI channel.
         /// </summary>
         public const int MaxFrequency = 32000000;
 
