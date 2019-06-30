@@ -370,7 +370,7 @@
             get
             {
                 if (pinNumber == WiringPiPin.Unknown)
-                    throw new InvalidOperationException("You can not get an unknow WiringPi pin.");
+                    throw new InvalidOperationException("You can not get an unknown WiringPi pin.");
 
                 return Pins.First(p => p.WiringPiPinNumber == pinNumber);
             }
