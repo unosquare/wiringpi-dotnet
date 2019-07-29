@@ -193,13 +193,12 @@
             {
                 lock (_syncLock)
                 {
-                    if (PinMode != GpioPinDriveMode.PwmOutput)
+                    if (!HasCapability(PinCapability.PWM))
                     {
                         _pwmRegister = 0;
 
-                        throw new InvalidOperationException(
-                            $"Unable to write PWM register for pin {BcmPinNumber} because operating mode is {PinMode}."
-                            + $" Writing the PWM register is only allowed if {nameof(PinMode)} is set to {GpioPinDriveMode.PwmOutput}");
+                        throw new NotSupportedException(
+                            $"Pin {BcmPinNumber} '{Name}' does not support mode '{GpioPinDriveMode.PwmOutput}'. Pin capabilities are limited to: {Capabilities}");
                     }
 
                     var val = value.Clamp(0, 1024);
@@ -226,13 +225,12 @@
             {
                 lock (_syncLock)
                 {
-                    if (PinMode != GpioPinDriveMode.PwmOutput)
+                    if (!HasCapability(PinCapability.PWM))
                     {
                         _pwmMode = PwmMode.Balanced;
 
-                        throw new InvalidOperationException(
-                            $"Unable to set PWM mode for pin {BcmPinNumber} because operating mode is {PinMode}."
-                            + $" Setting the PWM mode is only allowed if {nameof(PinMode)} is set to {GpioPinDriveMode.PwmOutput}");
+                        throw new NotSupportedException(
+                            $"Pin {BcmPinNumber} '{Name}' does not support mode '{GpioPinDriveMode.PwmOutput}'. Pin capabilities are limited to: {Capabilities}");
                     }
 
                     WiringPi.PwmSetMode((int)value);
@@ -256,13 +254,12 @@
             {
                 lock (_syncLock)
                 {
-                    if (PinMode != GpioPinDriveMode.PwmOutput)
+                    if (!HasCapability(PinCapability.PWM))
                     {
                         _pwmRange = 1024;
 
-                        throw new InvalidOperationException(
-                            $"Unable to set PWM range for pin {BcmPinNumber} because operating mode is {PinMode}."
-                            + $" Setting the PWM range is only allowed if {nameof(PinMode)} is set to {GpioPinDriveMode.PwmOutput}");
+                        throw new NotSupportedException(
+                            $"Pin {BcmPinNumber} '{Name}' does not support mode '{GpioPinDriveMode.PwmOutput}'. Pin capabilities are limited to: {Capabilities}");
                     }
 
                     WiringPi.PwmSetRange(value);
@@ -286,13 +283,12 @@
             {
                 lock (_syncLock)
                 {
-                    if (PinMode != GpioPinDriveMode.PwmOutput)
+                    if (!HasCapability(PinCapability.PWM))
                     {
                         _pwmClockDivisor = 1;
 
-                        throw new InvalidOperationException(
-                            $"Unable to set PWM range for pin {BcmPinNumber} because operating mode is {PinMode}."
-                            + $" Setting the PWM range is only allowed if {nameof(PinMode)} is set to {GpioPinDriveMode.PwmOutput}");
+                        throw new NotSupportedException(
+                            $"Pin {BcmPinNumber} '{Name}' does not support mode '{GpioPinDriveMode.PwmOutput}'. Pin capabilities are limited to: {Capabilities}");
                     }
 
                     WiringPi.PwmSetClock(value);
