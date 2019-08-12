@@ -12,7 +12,8 @@
     
     /// <summary>
     /// Represents the Raspberry Pi GPIO controller
-    /// as an IReadOnlyCollection of GpioPins
+    /// as an IReadOnlyCollection of GpioPins.
+    /// 
     /// Low level operations are accomplished by using the Wiring Pi library.
     /// </summary>
     public sealed class GpioController : IGpioController
