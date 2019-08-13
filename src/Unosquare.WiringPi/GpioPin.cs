@@ -180,7 +180,7 @@
         }
 
         /// <summary>
-        /// Gets or sets the PWM register. Values should be between 0 and 1024.
+        /// Gets or sets the PWM register.
         /// </summary>
         /// <value>
         /// The PWM register.
@@ -201,10 +201,8 @@
                             $"Pin {BcmPinNumber} '{Name}' does not support mode '{GpioPinDriveMode.PwmOutput}'. Pin capabilities are limited to: {Capabilities}");
                     }
 
-                    var val = value.Clamp(0, 1024);
-
-                    WiringPi.PwmWrite(BcmPinNumber, val);
-                    _pwmRegister = val;
+                    WiringPi.PwmWrite(BcmPinNumber, value);
+                    _pwmRegister = value;
                 }
             }
         }
