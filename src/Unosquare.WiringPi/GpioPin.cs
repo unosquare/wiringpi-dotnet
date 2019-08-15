@@ -3,7 +3,6 @@
     using Native;
     using RaspberryIO.Abstractions;
     using RaspberryIO.Abstractions.Native;
-    using Swan;
     using System;
     using System.Threading.Tasks;
     using Definitions = RaspberryIO.Abstractions.Definitions;
