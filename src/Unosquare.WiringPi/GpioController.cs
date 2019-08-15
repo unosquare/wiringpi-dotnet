@@ -529,7 +529,7 @@
         /// <exception cref="ArgumentException">The init mode is invalid.</exception>
         private bool Initialize(ControllerMode mode)
         {
-            if (Runtime.OS != Swan.OperatingSystem.Unix)
+            if (SwanRuntime.OS != Swan.OperatingSystem.Unix)
                 throw new PlatformNotSupportedException("This library does not support the platform");
 
             lock (SyncRoot)

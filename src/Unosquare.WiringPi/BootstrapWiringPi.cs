@@ -1,7 +1,7 @@
 ﻿namespace Unosquare.WiringPi
 {
     using RaspberryIO.Abstractions;
-    using Swan.Components;
+    using Swan.DependencyInjection;
 
     /// <summary>
     /// Represents the Bootstrap class to extract resources.
