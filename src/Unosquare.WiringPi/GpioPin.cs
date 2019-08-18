@@ -1,10 +1,11 @@
 ﻿namespace Unosquare.WiringPi
 {
+    using System;
+    using System.Threading.Tasks;
     using Native;
     using RaspberryIO.Abstractions;
     using RaspberryIO.Abstractions.Native;
-    using System;
-    using System.Threading.Tasks;
+    using Swan.Diagnostics;
     using Definitions = RaspberryIO.Abstractions.Definitions;
 
     /// <summary>
