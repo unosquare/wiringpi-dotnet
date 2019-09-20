@@ -33,6 +33,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   <PackageReference Include="Unosquare.Raspberry.Abstractions" Version="0.4.0" />
-  <PackageReference Include="Unosquare.Swan" Version="2.1.0" />
+  <PackageReference Include="Unosquare.Swan" Version="2.2.0" />
   </ItemGroup>
 </Project>
