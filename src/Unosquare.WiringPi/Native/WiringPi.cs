@@ -9,7 +9,7 @@
     /// </summary>
     public partial class WiringPi
     {
-        internal const string WiringPiLibrary = "libwiringPi.so.2.50";
+        internal const string WiringPiLibrary = "libwiringPi.so.2.52";
 
         #region WiringPi - Core Functions (https://github.com/WiringPi/WiringPi/blob/master/wiringPi/wiringPi.h)
 
