@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\gpio" />
-    <EmbeddedResource Include="Resources\libwiringPi.so.2.50" />
+    <EmbeddedResource Include="Resources\libwiringPi.so.2.52" />
   </ItemGroup>
 
   <ItemGroup>
