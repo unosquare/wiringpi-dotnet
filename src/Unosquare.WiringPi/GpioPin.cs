@@ -135,7 +135,12 @@
         /// Gets the interrupt callback. Returns null if no interrupt
         /// has been registered.
         /// </summary>
-        public InterruptServiceRoutineCallback InterruptCallback { get; private set; }
+        private Action InterruptCallback { get; set; } = null;
+
+        /// <summary>
+        /// Calls the registered Interrupt callback routine when there is one registered
+        /// </summary>
+        private void CallRegisteredInterruptCallback() => InterruptCallback?.Invoke();
 
         /// <summary>
         /// Gets the interrupt edge detection mode.
@@ -611,8 +616,11 @@
 
         /// <inheritdoc />
         /// <exception cref="ArgumentNullException">callback.</exception>
+        /// <exception cref="InvalidOperationException">callback.</exception>
         public void RegisterInterruptCallback(EdgeDetection edgeDetection, Action callback)
         {
+            if (InterruptCallback != null)
+                throw new InvalidOperationException("Interrupt already registered.");
             if (callback == null)
                 throw new ArgumentNullException(nameof(callback));
 
@@ -625,12 +633,12 @@
 
             lock (_syncLock)
             {
-                var isrCallback = new InterruptServiceRoutineCallback(callback);
+                var isrCallback = new InterruptServiceRoutineCallback(CallRegisteredInterruptCallback);
                 var registerResult = WiringPi.WiringPiISR(BcmPinNumber, GetWiringPiEdgeDetection(edgeDetection), isrCallback);
                 if (registerResult == 0)
                 {
                     InterruptEdgeDetection = edgeDetection;
-                    InterruptCallback = isrCallback;
+                    InterruptCallback = callback;
                 }
                 else
                 {
@@ -640,7 +648,27 @@
         }
 
         /// <inheritdoc />
+        /// <exception cref="ArgumentNullException">callback.</exception>
+        /// <exception cref="InvalidOperationException">callback.</exception>
+        public void RemoveInterruptCallback(EdgeDetection edgeDetection, Action callback)
+        {
+            if (InterruptCallback == null)
+                throw new InvalidOperationException("No Interrupt currently Registered.");
+            if (callback != InterruptCallback)
+                throw new InvalidOperationException("Currently a differend callabck is registered.");
+
+            lock (_syncLock)
+            {
+                InterruptCallback = null;
+            }
+        }
+
+        /// <inheritdoc />
         public void RegisterInterruptCallback(EdgeDetection edgeDetection, Action<int, int, uint> callback) =>
+            throw new NotSupportedException("WiringPi does only support a simple interrupt callback that has no parameters.");
+
+        /// <inheritdoc />
+        public void RemoveInterruptCallback(EdgeDetection edgeDetection, Action<int, int, uint> callback) =>
             throw new NotSupportedException("WiringPi does only support a simple interrupt callback that has no parameters.");
 
         internal static WiringPiPin BcmToWiringPiPinNumber(BcmPin pin) =>
