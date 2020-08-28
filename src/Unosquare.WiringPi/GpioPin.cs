@@ -643,6 +643,12 @@
         public void RegisterInterruptCallback(EdgeDetection edgeDetection, Action<int, int, uint> callback) =>
             throw new NotSupportedException("WiringPi does only support a simple interrupt callback that has no parameters.");
 
+        public void RemoveInterruptCallback(EdgeDetection edgeDetection, Action callback) =>
+            throw new NotSupportedException("WiringPi does only support a simple interrupt callback that has no parameters.");
+            
+        public void RemoveInterruptCallback(EdgeDetection edgeDetection, Action<int, int, uint> callback) =>
+            throw new NotSupportedException("WiringPi does only support a simple interrupt callback that has no parameters.");
+            
         internal static WiringPiPin BcmToWiringPiPinNumber(BcmPin pin) =>
             (WiringPiPin)GpioToWiringPi[(int)pin];
 
