@@ -2,6 +2,8 @@
 
 # <img src="https://raw.githubusercontent.com/unosquare/wiringpi-dotnet/master/logos/raspberryio-logo-32.png" alt="wiringpi-dotnet" style="width:16px; height:16px" /> wiringpi-dotnet
 
+**WE ARE LOOKING FOR A NEW HOME FOR THIS PROJECT. APPLY AT:** https://adoptoposs.org/p/67b02bee-a00e-446a-a321-c1a6449014bc
+
 *:star: Please star this project if you find it useful!*
 
 Provides complete managed access to the popular wiringpi C library
