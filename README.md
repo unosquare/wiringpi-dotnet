@@ -1,8 +1,8 @@
+**THIS REPORT HAS BEEN ARCHIVED**
+
 [![Build status](https://ci.appveyor.com/api/projects/status/396f8xpnuj2qq4f1/branch/master?svg=true)](https://ci.appveyor.com/project/geoperez/wiringpi-dotnet/branch/master)
 
 # <img src="https://raw.githubusercontent.com/unosquare/wiringpi-dotnet/master/logos/raspberryio-logo-32.png" alt="wiringpi-dotnet" style="width:16px; height:16px" /> wiringpi-dotnet
-
-**WE ARE LOOKING FOR A NEW HOME FOR THIS PROJECT. APPLY AT:** https://adoptoposs.org/p/67b02bee-a00e-446a-a321-c1a6449014bc
 
 *:star: Please star this project if you find it useful!*
 
